@@ -1,0 +1,124 @@
+package ativ;
+
+import ativ.objects.ContaBancaria;
+import ativ.objects.Filme;
+import ativ.objects.Funcionario;
+import ativ.objects.Retangulo;
+import ativ.objects.Musica;
+import ativ.objects.Pessoa;
+import ativ.objects.ContaLuz;
+import ativ.objects.BicicletaAlugada;
+import ativ.objects.ProdutoEstoque;
+import ativ.objects.Temperatura;
+
+public class index {
+
+    public static void main(String[] args) {
+        atvUm();
+        atvDois();
+        atvTres();
+        atvQuatro();
+        atvCinco();
+        atvSeis();
+        atvSete();
+        atvOito();
+        atvNove();
+        atvDez();
+    }
+
+    public static void atvUm() {
+        ContaBancaria contaBancaria = new ContaBancaria("Joao Salvador", 500.00);
+
+        contaBancaria.deposito(1350.00);
+        contaBancaria.deposito(850.00);
+        contaBancaria.saque(2200.00);
+
+        System.out.println("-----| Atividade 1 |-----\n\n");
+        System.out.printf("Bem vindo %s, Seu saldo final é: %.2f.\n\n", contaBancaria.getTitular(), contaBancaria.getSaldo());
+    }
+
+    public static void atvDois() {
+        Filme filmeUm = new Filme("Interstellar", "Christopher Nolan", 5);
+        Filme filmeDois = new Filme("Oppenheimer", "Christopher Nolan", 4);
+        
+        System.out.println("-----| Atividade 2 |-----\n\n");
+        System.out.println(filmeUm.exibir());
+        System.out.println(filmeDois.exibir());
+    }
+
+	public static void atvTres() {
+		Funcionario funcionario = new Funcionario("Joao Salvador", 15);
+
+		System.out.println("-----| Atividade 3 |-----\n\n");
+		System.out.printf("O funcionário é: %s e o salário antigo é: %.2f.\n", funcionario.getNome(), funcionario.getSalario());
+
+		funcionario.aumentarSalario(5);
+
+		System.out.printf("O funcionário é: %s e o salário novo é: %.2f.\n", funcionario.getNome(), funcionario.getSalario());
+	}
+
+	public static void atvQuatro() {
+        Retangulo retangulo = new Retangulo(10.80, 12.50);
+
+		System.out.println("-----| Atividade 4 |-----\n\n");
+		System.out.println(retangulo.area());
+		System.out.println(retangulo.perimetro());
+	}
+
+	public static void atvCinco() {
+		Musica musicaUm = new Musica("Like a Stone - Audioslave", 293);
+		Musica musicaDois = new Musica("Wasteland - 10 Years", 230);
+
+		if(musicaUm.getDuracaoSegundos() > 0 && musicaUm.getTitulo() != null && !musicaUm.getTitulo().isBlank()) {
+			System.out.println("-----| Atividade 5 |-----\n\n");
+			System.out.printf("O nome da musica e: %s e tem %s de duração.", musicaUm.getTitulo(), musicaUm.formatarDuracao(musicaUm.getDuracaoSegundos()) + "\n");
+		} else {
+			System.out.println("Os dados informados estão incorretos.");
+		}
+
+		if(musicaDois.getDuracaoSegundos() > 0 && musicaDois.getTitulo() != null && !musicaDois.getTitulo().isBlank()) {
+			System.out.printf("O nome da musica e: %s e tem %s de duração.", musicaDois.getTitulo(), musicaDois.formatarDuracao(musicaDois.getDuracaoSegundos()) + "\n");
+		} else {
+			System.out.println("Os dados informados estão incorretos.");
+		}
+	}
+
+	public static void atvSeis() {
+		Pessoa pessoa = new Pessoa("Joao Salvador", 90, 1.81);
+
+		System.out.println("-----| Atividade 6 |-----\n\n");
+		System.out.printf("O nome da pessoa e: %s e seu IMC e: %.2f . Logo a classficação do IMC será: %s.\n\n", pessoa.getNome(), pessoa.calcularIMC(), pessoa.classificacaoIMC());
+	}
+
+	public static void atvSete() {
+		ContaLuz contaLuz = new ContaLuz(183.10, 0.5);
+
+		System.out.println("-----| Atividade 7 |-----\n\n");
+		System.out.printf("O seu consumo em KWH e: %.2f e o valor por KWH e: %.2f. Tendo o valor total da fatura: %.2f.\n", contaLuz.getConsumoKwh(), contaLuz.getValorKwh(), contaLuz.calcularValorTotal());
+	}
+
+	public static void atvOito() {
+		BicicletaAlugada bicicletaAlugada = new BicicletaAlugada(4, 12.50);
+
+		System.out.println("-----| Atividade 8 |-----\n\n");
+		System.out.printf("Seu total de horas foi: %d, o valor da hora e: %.2f. Logo o valor total fica: %.2f.\n", bicicletaAlugada.getHoras(), bicicletaAlugada.getValorHora(), bicicletaAlugada.calcularValor());
+	}
+
+	public static void atvNove() {
+		ProdutoEstoque produtoEstoque = new ProdutoEstoque("Turbina", 2);
+
+		produtoEstoque.adicionarEstoque(3);
+		produtoEstoque.adicionarEstoque(-10);
+		produtoEstoque.removerEstoque(2);
+
+		System.out.println("-----| Atividade 9 |-----\n\n");
+		System.out.printf("O nome do produto e: %s , a quantidade final e: %d.\n", produtoEstoque.getNome(), produtoEstoque.getQuantidade());
+	}
+
+	public static void atvDez() {
+		Temperatura temperatura = new Temperatura(30);
+
+		System.out.println("-----| Atividade 10 |-----\n\n");
+		System.out.printf("A temperatura em celsius e: %.2f, a temperatura em Fahrenheit: %.2f e a temperatura em Kelvin: %.2f.", temperatura.getCelsius(), temperatura.paraFahrenheit(), temperatura.paraKelvin());
+	}
+}

@@ -1,0 +1,37 @@
+package ativ.objects;
+
+public class ContaLuz {
+
+    private double consumoKwh;
+    private double valorKwh;
+
+    public contaLuz (double consumoKwh, double valorKwh){
+
+        setConsumoKwh(consumoKwh);
+        setValorKwh(valorKwh);
+    }
+
+    public void setConsumoKwh(double consumoKwh){
+        if(consumoKwh > 0){
+            this.consumoKwh = consumoKwh;
+        }
+    }
+
+    public double getConsumoKwh(){
+        return consumoKwh;
+    }
+
+    public void setValorKwh(double valorKwh){
+        if(valorKwh > 0){
+            this.valorKwh = valorKwh;
+        }
+    }
+
+    public double getValorKwh(){
+        return valorKwh;
+    }
+
+    public double calcularValorTotal(){
+        return consumoKwh * valorKwh;
+    }
+}

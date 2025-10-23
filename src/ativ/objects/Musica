@@ -1,0 +1,39 @@
+package ativ.objects;
+
+public class Musica {
+    
+    private String titulo;
+    private int duracaoSegundos;
+
+    public Musica(String titulo, int duracaoSegundos){
+        setTitulo(titulo);
+        setDuracaoSegundos(duracaoSegundos);
+    }
+
+    public void setTitulo(String titulo){
+        if(titulo != null && !titulo.isEmpty()){
+            this.titulo = titulo;
+        }
+    }
+
+    public double getTitulo(){
+        return titulo;
+    }
+
+    public void setDuracaoSegundos(int duracaoSegundos){
+        if(duracaoSegundos > 0){
+            this.duracaoSegundos = duracaoSegundos;
+        }
+    }
+
+    public double getDuracaoSegundos(){
+        return duracaoSegundos;
+    }
+
+    public String formatoDuracao(){
+        int minutos = duracaoSegundos / 60;
+        int segundos = duracaoSegundos % 60;
+        return String.format("%02d:%02d", minutos, segundos);
+    }
+
+}
